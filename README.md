@@ -7,13 +7,20 @@ Make sure you are using node version ^20 (run `node -v`).
 
 [Vite: create-vite Reference Docs](https://github.com/vitejs/vite/tree/main/packages/create-vite)
 
-### Initialize a [Vite react-ts project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
+## Initialize a [Vite react-ts project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
 npm create vite@latest my-project -- --template react && cd my-project
 ```
 
-### Install dependencies
+Replace `my-project` with your project name.
+
+### Recommended naming convention for a project
+- [kebab case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) (lower-case words, use hyphens instead of spaces)
+- Examples: `quick-brown-fox`, `lazy-dog`, `gullskatten-api` 
+
+
+## Install dependencies
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer prettier prettier-plugin-tailwindcss
@@ -23,7 +30,7 @@ npm install -D tailwindcss postcss autoprefixer prettier prettier-plugin-tailwin
 - [`postcss, autoprefixer`](https://postcss.org/): Automatically adds vendor prefixes (-o-, -moz-) to css output
 - [`prettier prettier-plugin-tailwindcss`](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier): Sort classnames based on recommended sorting order
 
-### Initialize tailwindcss
+## Initialize tailwindcss
 
 ```bash
 npx tailwindcss init -p
@@ -61,17 +68,17 @@ Open `./src/index.css` and add the `@tailwind` lines below at the top of this fi
 }
 ```
 
-### [Add Prettier Configuration](https://prettier.io/docs/en/configuration)
+## Add a [Prettier Configuration](https://prettier.io/docs/en/configuration)
 
-ESLint has already been installed as a dependency by `create-vite`. However, I prefer using prettier for formatting rules, and ESLint only for tracing errors/warnings in code. To make sure that prettier and eslint are not conflicting, we'll add a package which resolves any conflicting rules later on. First, let's set up Prettier.
+ESLint has already been installed as a dependency by `create-vite`. However, I prefer using Prettier for formatting rules, and ESLint only for tracing errors/warnings in code. To make sure that Prettier and ESLint are not conflicting, we'll add a package which resolves any conflicting rules later on. First, let's set up Prettier.
 
-1. Create a .prettierrc file
+1. Create a file named `.prettierrc` in your project root (Prettier configuration file)
 
 ```bash
 touch .prettierrc
 ```
 
-2. Add the tailwind-plugin to the Prettier configuration file
+2. Open `.prettierrc`, and add the following contents:
 
 ```json
 {
@@ -85,7 +92,7 @@ touch .prettierrc
 }
 ```
 
-Note: I added some more formatting rules. You can customize this json-file to match your preference - the only important part is the `"plugins"` key.
+Note: I added some more formatting rules to the configuration file. You can customize the settings in this configuration file to match your preference - the only important part is the `"plugins"` key.
 
 3. Add [eslint-config for prettier](https://github.com/prettier/eslint-config-prettier): Make sure ESLint does not conflict with Prettier (for formatting) by installing the following package:
 
@@ -93,7 +100,7 @@ Note: I added some more formatting rules. You can customize this json-file to ma
 npm install -D eslint-plugin-prettier eslint-config-prettier
 ```
 
-4. Add `prettier` to the eslint-config
+4. Add the `prettier` plugin to the eslint-config
 
 Open `.eslintrc.cjs` and add `plugin:prettier/recommended` as the last element in the `"extends": []` array:
 
