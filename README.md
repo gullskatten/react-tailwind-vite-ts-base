@@ -10,7 +10,7 @@ Make sure you are using node version ^20 (run `node -v`).
 ## Initialize a [Vite react-ts project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
-npm create vite@latest my-project -- --template react && cd my-project
+npm create vite@latest my-project -- --template react-ts && cd my-project
 ```
 
 Replace `my-project` with your project name.
